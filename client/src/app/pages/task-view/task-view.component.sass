@@ -1,0 +1,99 @@
+@use '../../../sass' as *
+
+.cr__taskView
+    width: 100%
+    height: 100vh
+    display: flex
+    align-items: center
+    justify-content: center
+    
+    &__content
+        width: 70%
+        height: 70vh
+        display: flex
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px
+
+        h1
+            font-weight: 800
+            text-transform: uppercase
+
+        &__sidebar
+            flex: 1
+            padding: calc($spacing * 2)
+            border-radius: calc($spacing / 2) 0 0 calc($spacing / 2)
+            display: flex
+            flex-direction: column
+
+            .list__menu
+                list-style: none
+                margin-top: $spacing
+                display: flex
+                flex-direction: column
+                flex-grow: 1
+                overflow: auto
+
+                &__item
+                    width: 100%
+                    padding: 10px 15px
+                    border-radius: 5px
+                    transition: all ease-in-out 500ms
+                    margin-bottom: 2px
+
+                    >a
+                        color: #5f5f5f
+                        transition: all ease-in-out 500ms
+                        transition-delay: 100ms
+
+                    &:hover
+                        background: $clr-sec-200
+                        a
+                            color: $clr-nrl-200
+                    &.active
+                        background: $clr-pr-400
+                        a
+                            color: $clr-nrl-200
+        
+            .btn__add__list
+                width: 100%
+                background: $clr-sec-400
+                color: $clr-nrl-200
+
+        &__lists
+            background: $clr-nrl-200
+            flex: 4
+            padding: calc($spacing * 2)
+            border-radius: 0 calc($spacing / 2) calc($spacing / 2) 0
+
+            .tasks
+                list-style: none
+
+                &__item
+                    width: 100%
+
+                    input
+                        cursor: pointer
+                        border: none
+                        output: none
+                        width: 100%
+                        padding: 15px 20px
+                        border-radius: calc($spacing / 2) 
+                        margin-bottom: calc($spacing / 2)
+
+                        &:hover, &:focus
+                            border: none
+                            outline: none
+
+                        &:not(.done)    
+                            transition: box-shadow 300ms ease, transform 250ms ease
+
+                            &:hover
+                                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px
+
+                            &:focus
+                                transform: scale(0.98) 
+
+                        &.done
+                            text-decoration: line-through
+                            opacity: 50%
+
+
